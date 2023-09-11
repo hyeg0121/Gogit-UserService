@@ -24,8 +24,8 @@ public class CustomOAuth2MemberService implements OAuth2UserService {
         DefaultOAuth2UserService service = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = service.loadUser(userRequest);
 
+        System.out.println(oAuth2User);
         Member member = saveOrUpdates(oAuth2User);
-
         return null;
     }
 
