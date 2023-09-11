@@ -2,6 +2,7 @@ package com.gogit.gogitserver.member.entity;
 
 import com.gogit.gogitserver.article.entity.Article;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
@@ -16,8 +17,14 @@ public class Member {
     @Column(name = "github_id", unique = true)
     private String githubId;
 
-    @Column(name = "github_token")
-    private String githubToken;
+    @Column
+    private String name;
+
+    @Column
+    private String email;
+
+    @Column
+    private String picture;
 
     @ManyToMany
     @JoinTable(
@@ -26,4 +33,14 @@ public class Member {
             inverseJoinColumns = @JoinColumn(name = "article_id")
     )
     private List<Article> likedArticles;
+
+
+
+    @Builder
+    public Member(String githubId, String name, String email, String picture) {
+        this.githubId = githubId;
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+    }
 }
