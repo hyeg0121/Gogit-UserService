@@ -1,6 +1,6 @@
-package com.gogit.gogitserver.member.repository;
+package com.gogit.gogitserver.repository;
 
-import com.gogit.gogitserver.member.entity.Member;
+import com.gogit.gogitserver.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.gogit.gogitserver.oauth;
+package com.gogit.gogitserver.service;
 
-import com.gogit.gogitserver.member.entity.Member;
-import com.gogit.gogitserver.member.repository.MemberRepository;
+import com.gogit.gogitserver.entity.Member;
+import com.gogit.gogitserver.repository.MemberRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

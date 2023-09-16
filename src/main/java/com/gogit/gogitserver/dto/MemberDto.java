@@ -1,6 +1,5 @@
-package com.gogit.gogitserver.member.dto;
+package com.gogit.gogitserver.dto;
 
-import com.gogit.gogitserver.member.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 

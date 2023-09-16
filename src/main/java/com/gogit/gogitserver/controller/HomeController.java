@@ -1,6 +1,6 @@
 package com.gogit.gogitserver.controller;
 
-import com.gogit.gogitserver.member.dto.MemberDto;
+import com.gogit.gogitserver.dto.MemberDto;
 import jakarta.servlet.http.HttpSession;
 import org.kohsuke.github.GHUser;
 import org.kohsuke.github.GitHub;

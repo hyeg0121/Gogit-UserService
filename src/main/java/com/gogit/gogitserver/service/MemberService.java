@@ -1,7 +1,7 @@
-package com.gogit.gogitserver.member.service;
+package com.gogit.gogitserver.service;
 
-import com.gogit.gogitserver.member.entity.Member;
-import com.gogit.gogitserver.member.repository.MemberRepository;
+import com.gogit.gogitserver.entity.Member;
+import com.gogit.gogitserver.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

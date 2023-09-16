@@ -1,7 +1,5 @@
-package com.gogit.gogitserver.comment.entity;
+package com.gogit.gogitserver.entity;
 
-import com.gogit.gogitserver.article.entity.Article;
-import com.gogit.gogitserver.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.Data;
 
