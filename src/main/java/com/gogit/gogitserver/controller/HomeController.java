@@ -22,24 +22,9 @@ public class HomeController {
     }
 
     @GetMapping("/secured")
-    public ResponseEntity secured(@AuthenticationPrincipal OAuth2User oAuth2User,
-                          HttpSession session) throws IOException {
+    public String secured() throws IOException {
 
-        GitHub gitHub = new GitHubBuilder()
-                .withOAuthToken(session.getAttribute("oAuthToken").toString(),
-                        oAuth2User.getName()).build();
-
-        GHUser user = gitHub.getUser(oAuth2User.getName());
-        System.out.println("user = " + user);
-
-        MemberDto dto = MemberDto.builder()
-                .githubID(user.getLogin())
-                .name(user.getName())
-                .email(user.getEmail())
-                .build();
-
-
-        return ResponseEntity.ok(dto);
+        return "ok";
     }
 
 }
