@@ -3,11 +3,13 @@ package com.gogit.gogitserver.entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +35,6 @@ public class Member {
     )
     private List<Article> likedArticles;
 
-
-
     @Builder
     public Member(String githubId, String name, String email, String picture) {
         this.githubId = githubId;
@@ -42,4 +42,6 @@ public class Member {
         this.email = email;
         this.picture = picture;
     }
+
+
 }
