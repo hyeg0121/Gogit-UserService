@@ -52,4 +52,8 @@ public class MemberService {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    public Member findByGithubId(String githubId) {
+        return memberRepository.findByGithubId(githubId).orElse(null);
+    }
+
 }
