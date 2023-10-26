@@ -33,12 +33,11 @@ public class MemberService {
         return memberRepository.findById(memberId)
                 .map(existingMember -> {
                     existingMember.setGithubId(updatedMember.getGithubId());
-                    existingMember.setName(updatedMember.getName());
-                    existingMember.setEmail(updatedMember.getEmail());
-                    existingMember.setPicture(updatedMember.getPicture());
+                    existingMember.setGithubToken(updatedMember.getGithubToken());
+                    existingMember.setLikedArticles(updatedMember.getLikedArticles());
 
                     Member updated = memberRepository.save(existingMember);
-                    return ResponseEntity.ok(updated);
+                    return ResponseEntity.status(200).body(updated);
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
