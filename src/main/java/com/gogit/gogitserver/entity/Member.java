@@ -18,14 +18,8 @@ public class Member {
     @Column(name = "github_id", unique = true)
     private String githubId;
 
-    @Column
-    private String name;
-
-    @Column
-    private String email;
-
-    @Column
-    private String picture;
+    @Column(name = "github_token", unique = true)
+    private String githubToken;
 
     @ManyToMany
     @JoinTable(
@@ -36,11 +30,9 @@ public class Member {
     private List<Article> likedArticles;
 
     @Builder
-    public Member(String githubId, String name, String email, String picture) {
+    public Member(String githubId, String githubToken) {
         this.githubId = githubId;
-        this.name = name;
-        this.email = email;
-        this.picture = picture;
+        this.githubToken = githubToken;
     }
 
 
