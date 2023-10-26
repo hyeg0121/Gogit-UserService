@@ -7,15 +7,13 @@ import lombok.Getter;
 public class MemberDto {
 
     private final String githubID;
-    private final String name;
-    private final String email;
+    private final String githubToken;
 
 
     @Builder
-    public MemberDto(String githubID, String name, String email) {
+    public MemberDto(String githubID, String githubToken) {
         this.githubID = githubID;
-        this.name = name;
-        this.email = email;
+        this.githubToken = githubToken;
     }
 
 }
