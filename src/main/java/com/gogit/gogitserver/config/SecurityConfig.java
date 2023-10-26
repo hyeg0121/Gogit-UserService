@@ -23,7 +23,6 @@ public class SecurityConfig {
             auth.requestMatchers("/api/members").permitAll();
             auth.anyRequest().authenticated();
         })
-        .oauth2Login(withDefaults())
         .formLogin(withDefaults())
         .csrf(AbstractHttpConfigurer::disable)
         .formLogin(AbstractHttpConfigurer::disable)
