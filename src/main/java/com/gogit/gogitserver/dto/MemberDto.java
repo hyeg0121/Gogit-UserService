@@ -6,13 +6,13 @@ import lombok.Getter;
 @Getter
 public class MemberDto {
 
-    private final String githubID;
+    private final String githubId;
     private final String githubToken;
 
 
     @Builder
-    public MemberDto(String githubID, String githubToken) {
-        this.githubID = githubID;
+    public MemberDto(String githubId, String githubToken) {
+        this.githubId = githubId;
         this.githubToken = githubToken;
     }
 
