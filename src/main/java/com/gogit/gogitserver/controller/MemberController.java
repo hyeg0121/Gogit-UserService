@@ -1,6 +1,7 @@
 package com.gogit.gogitserver.controller;
 
 import com.gogit.gogitserver.entity.Member;
+import com.gogit.gogitserver.entity.Post;
 import com.gogit.gogitserver.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,11 @@ public class MemberController {
     @DeleteMapping("/{memberId}")
     public ResponseEntity<Object> deleteMember(@PathVariable Long memberId) {
         return memberService.deleteMember(memberId);
+    }
+
+    @GetMapping("/{memberId}/posts")
+    public ResponseEntity<List<Post>> getPostByWriterId(@PathVariable Long memberId){
+        return ResponseEntity.ok()
+                .body(memberService.findPostByWriterId(memberId));
     }
 }
