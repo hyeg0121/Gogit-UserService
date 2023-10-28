@@ -3,6 +3,7 @@ package com.gogit.gogitserver.service;
 import com.gogit.gogitserver.entity.Member;
 import com.gogit.gogitserver.repository.MemberRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+
+    @Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
@@ -34,7 +39,7 @@ public class MemberService {
                 .map(existingMember -> {
                     existingMember.setGithubId(updatedMember.getGithubId());
                     existingMember.setGithubToken(updatedMember.getGithubToken());
-                    existingMember.setLikedArticles(updatedMember.getLikedArticles());
+                    existingMember.setLikedPosts(updatedMember.getLikedPosts());
 
                     Member updated = memberRepository.save(existingMember);
                     return ResponseEntity.status(200).body(updated);
