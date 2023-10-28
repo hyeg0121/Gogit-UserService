@@ -1,7 +1,9 @@
 package com.gogit.gogitserver.service;
 
 import com.gogit.gogitserver.entity.Member;
+import com.gogit.gogitserver.entity.Post;
 import com.gogit.gogitserver.repository.MemberRepository;
+import com.gogit.gogitserver.repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +15,12 @@ import java.util.List;
 @Service
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final PostRepository postRepository;
 
     @Autowired
-    public MemberService(MemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository, PostRepository postRepository) {
         this.memberRepository = memberRepository;
+        this.postRepository = postRepository;
     }
 
     public List<Member> getAllMembers() {
@@ -59,5 +63,10 @@ public class MemberService {
     public Member findByGithubId(String githubId) {
         return memberRepository.findByGithubId(githubId).orElse(null);
     }
+
+    public List<Post> findPostByWriterId(Long writerId) {
+        return postRepository.findByWriterId(writerId);
+    }
+
 
 }
