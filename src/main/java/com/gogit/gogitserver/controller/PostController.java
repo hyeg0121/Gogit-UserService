@@ -23,7 +23,19 @@ public class PostController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Post>> findAllArticle() {
+    public ResponseEntity<List<Post>> findAllPost() {
         return ResponseEntity.ok().body(postService.getAllPosts());
     }
+
+    @GetMapping("/{postID}")
+    public ResponseEntity<Post> findPostById(@PathVariable Long postID) {
+        Post post = postService.getPostById(postID);
+
+        if (post != null) {
+            return ResponseEntity.ok().body(post);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
