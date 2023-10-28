@@ -1,18 +1,17 @@
 package com.gogit.gogitserver.entity;
 
-import com.gogit.gogitserver.entity.Comment;
-import com.gogit.gogitserver.entity.Member;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
-public class Article {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,15 +26,17 @@ public class Article {
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
-    @ManyToMany(mappedBy = "likedArticles")
+    @ManyToMany(mappedBy = "likedPosts")
     private List<Member> likedMember;
 
-    private Long likes;
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @Builder
-    public Article(Member writer, String contents) {
+    public Post(Member writer, String contents) {
         this.writer = writer;
         this.contents = contents;
+        this.createdAt = new Date();
     }
 
 
