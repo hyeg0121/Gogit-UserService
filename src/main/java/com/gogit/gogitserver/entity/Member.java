@@ -23,11 +23,11 @@ public class Member {
 
     @ManyToMany
     @JoinTable(
-            name = "member_liked_articles",
+            name = "member_liked_posts",
             joinColumns = @JoinColumn(name = "member_id"),
-            inverseJoinColumns = @JoinColumn(name = "article_id")
+            inverseJoinColumns = @JoinColumn(name = "post_id")
     )
-    private List<Article> likedArticles;
+    private List<Post> likedPosts;
 
     @Builder
     public Member(String githubId, String githubToken) {
