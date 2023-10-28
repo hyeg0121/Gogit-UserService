@@ -19,6 +19,6 @@ public class Comment {
     private Member author;
 
     @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @JoinColumn(name = "article_id")
+    private Article article;
 }

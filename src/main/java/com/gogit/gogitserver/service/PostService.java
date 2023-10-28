@@ -18,6 +18,7 @@ public class PostService {
 
     public ResponseEntity<Post> createPost(AddPostRequest post){
         Post savedPost = postRepository.save(new Post(post.getWriter(), post.getContents()));
+
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
 

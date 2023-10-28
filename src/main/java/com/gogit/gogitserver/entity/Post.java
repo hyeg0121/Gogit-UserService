@@ -23,7 +23,7 @@ public class Post {
     @Column(length = 2000)
     private String contents;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
     @ManyToMany(mappedBy = "likedPosts")

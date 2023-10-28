@@ -26,15 +26,4 @@ public class PostController {
     public ResponseEntity<List<Post>> findAllArticle() {
         return ResponseEntity.ok().body(postService.getAllPosts());
     }
-
-    @GetMapping("/{postId}")
-    public ResponseEntity<Post> findPostByID(@PathVariable Long postId) {
-        Post post = postService.getPostById(postId);
-        if (post != null) {
-            return ResponseEntity.ok().body(post);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
 }
