@@ -18,7 +18,7 @@ public class Member {
     @Column(name = "github_id", unique = true)
     private String githubId;
 
-    @Column(name = "github_token", unique = true)
+    @Column(name = "github_token")
     private String githubToken;
 
     @Column(name = "avatar_url")
