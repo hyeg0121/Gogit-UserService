@@ -21,13 +21,11 @@ public class Member {
     @Column(name = "github_token", unique = true)
     private String githubToken;
 
-    @ManyToMany
-    @JoinTable(
-            name = "member_liked_posts",
-            joinColumns = @JoinColumn(name = "member_id"),
-            inverseJoinColumns = @JoinColumn(name = "post_id")
-    )
-    private List<Post> likedPosts;
+    @Column(name = "avatar_url")
+    private String avatarUrl;
+
+    @Column(name = "html_url")
+    private String htmlUrl;
 
     @Builder
     public Member(String githubId, String githubToken) {
