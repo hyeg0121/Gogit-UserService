@@ -1,7 +1,6 @@
 package com.gogit.gogitserver.controller;
 
 import com.gogit.gogitserver.entity.Member;
-import com.gogit.gogitserver.entity.Post;
 import com.gogit.gogitserver.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/members")
+@RequestMapping("/members")
 @AllArgsConstructor
 public class MemberController {
     private final MemberService memberService;
@@ -40,9 +39,5 @@ public class MemberController {
         return memberService.deleteMember(memberId);
     }
 
-    @GetMapping("/{memberId}/posts")
-    public ResponseEntity<List<Post>> getPostByWriterId(@PathVariable Long memberId){
-        return ResponseEntity.ok()
-                .body(memberService.findPostByWriterId(memberId));
-    }
 }
+    
